@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0px auto;
+  max-width: 1920px;
+  background-color: #ffe4e1;
+}
+.game {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}

@@ -1,0 +1,26 @@
+.button {
+  width: 180px; height: 35px;
+  background-color: black;
+  color: white;
+  line-height: 35px; text-align: center;
+  font-size: 20px;
+  border-radius: 7px;
+  margin: 10px 0px;
+  cursor: pointer
+}
+.input {
+  width: 150px; height: 30px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.link {
+  text-decoration: none;
+}
+.link:link, .link:visited {
+  color: #fff;
+}
+.wrapper {
+  margin-top: 20px;
+}
