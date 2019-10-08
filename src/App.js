@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, Route} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 
 import style from "./style.css";
 
@@ -105,7 +105,7 @@ class App extends Component {
 
   render(){
     return(
-      <BrowserRouter>
+      <HashRouter>
         <div className={style.game}>
           <h1>Sliding Puzzle Game</h1>
           <Route exact path="/"
@@ -114,7 +114,7 @@ class App extends Component {
           <Route path="/ranking" component={Ranking} />
           <Menu name={this.state.name} initBoard={this.initBoard}/>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
 }
