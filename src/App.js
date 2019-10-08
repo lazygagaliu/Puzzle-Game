@@ -12,6 +12,7 @@ class App extends Component {
   state = {
     tiles: [1, 2, 3, 4, 5, 6, 7, 8, 0],
     isWon: false,
+    num: 1
   }
 
   shuffle = arr => {
@@ -24,15 +25,16 @@ class App extends Component {
 
   initBoard = player => {
     let tiles = this.state.tiles;
-    let num = 1;
     let name = player
-    tiles = this.shuffle(tiles);
-    // tiles = [1, 2, 3, 4, 5, 6, 7, 0, 8];
-    this.setState({
+    // tiles = this.shuffle(tiles);
+    // tiles = [1, 2, 3, 4, 5, 6, 0, 7, 8];
+    tiles = [4, 1, 2, 7, 5, 3, 0, 8, 6];
+    this.setState( prevState => ({
       tiles,
-      num,
+      num: prevState.num,
       name
-    })
+    }))
+    console.log(this.state);
   }
 
   checkWin = () => {
@@ -68,36 +70,35 @@ class App extends Component {
         [3,7,null,null], [4,8,null,6], [5,null,null,7]
     ];
     let name = this.state.name;
-    let num = this.state.num;
-    num ++ ;
 
     for(let i = 0; i < moves[index].length; i++){
       let move = moves[index][i];
       if(typeof move === "number" && tiles[move] === 0){
         tiles[index] = 0;
         tiles[move] = status;
-        this.setState({
+        this.setState(prevState => ({
           tiles,
-          isWon: this.checkWin(),
           name,
-          num
-        })
+          num: prevState.num + 1,
+          isWon: this.checkWin()
+        }))
       }
     }
+    console.log(this.state);
   }
 
   back = () => {
-    let name = this.state.name;
-    let path = location.pathname
+    let path = location.pathname;
     this.setState({
       tiles: [1, 2, 3, 4, 5, 6, 7, 8, 0],
-      name,
+      num: 1,
       isWon:false,
       path
     })
   }
 
   restart = () => {
+    let name = this.state.name;
     this.back();
     this.initBoard(this.state.name);
   }

@@ -8,7 +8,7 @@ let Ranking = () => {
   } else {
     ranking = JSON.parse( localStorage.getItem("ranking") );
     ranking.sort( (a, b) => {
-      return b.steps - a.steps
+      return a.steps - b.steps
     });
 
     ranking = ranking.map( (rank, i) => {
